@@ -9,8 +9,9 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
 
+import org.bson.Document;
 import org.json.JSONException;
-import org.json.JSONObject;
+
 
 
 public class JsonReader {
@@ -24,7 +25,7 @@ public class JsonReader {
 		return sb.toString();
 	}
 	
-	public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException{
+	public static Document readJsonFromUrl(String url) throws IOException, JSONException{
 		//InputStream is = new URL(url).openStream();
 		URLConnection openConnection = new URL(url).openConnection();
 		openConnection.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0"); // reikia pakeisti url
@@ -33,10 +34,10 @@ public class JsonReader {
 		try{
 			BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
 			String jsonText = readAll(rd);
-			System.out.println(url);
-			System.out.println(jsonText);
-			System.out.println();
-			JSONObject json = new JSONObject(jsonText);
+			//System.out.println(url);
+			//System.out.println(jsonText);
+			//System.out.println();
+			Document json = Document.parse(GenerateTickJson.GenerateJson(url, jsonText));
 			return json;
 		} finally {
 			is.close();
