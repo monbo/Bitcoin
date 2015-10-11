@@ -2,7 +2,7 @@ package com.bitcollect;
 
 
 public class GenerateTickJson {
-	static final String btcUSD = "https://btc-e.com/api/3/ticker/btc_usd";
+	static final String btceUSD = "https://btc-e.com/api/3/ticker/btc_usd";
 	static final String bitfinexUSD = "https://api.bitfinex.com//v1/pubticker/btcusd";
 	static final String bitstampUSD = "https://bitstamp.net/api/ticker/";
 	static final String korbitKRW = "https://api.korbit.co.kr/v1/ticker/detailed";
@@ -10,8 +10,8 @@ public class GenerateTickJson {
 	public static String GenerateJson(String url, String jsonText){
 		String generatedJsonText = "";
 		switch(url){
-			case btcUSD:
-				generatedJsonText = BtcTickUSD.BitStamp(jsonText);
+			case btceUSD:
+				generatedJsonText = BtceTickUSD.BitStamp(jsonText);
 				break;
 			case bitfinexUSD:
 				generatedJsonText = BitFinexTickUSD.BitFinex(jsonText);

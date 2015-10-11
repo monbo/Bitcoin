@@ -18,7 +18,7 @@ import com.mongodb.client.MongoDatabase;
 
 public class App {
 	//Names of bitcoin sites
-	static final String btcUSD = "https://btc-e.com/api/3/ticker/btc_usd";
+	static final String btceUSD = "https://btc-e.com/api/3/ticker/btc_usd";
 	static final String bitfinexUSD = "https://api.bitfinex.com//v1/pubticker/btcusd";
 	static final String bitstampUSD = "https://bitstamp.net/api/ticker/";
 	static final String korbitKRW = "https://api.korbit.co.kr/v1/ticker/detailed";
@@ -33,7 +33,7 @@ public class App {
 		final int MYTHREADS = 4;	// thread number
 
 		ExecutorService executor = Executors.newFixedThreadPool(MYTHREADS);
-		String[] serverList = {btcUSD, bitfinexUSD, bitstampUSD, korbitKRW};
+		String[] serverList = {btceUSD, bitfinexUSD, bitstampUSD, korbitKRW};
 		while(true) {
 			for (int i = 0; i < serverList.length; i++) {
 				String url = serverList[i];
@@ -52,8 +52,8 @@ public class App {
   		MyRunnable(String url, MongoClient client, MongoDatabase database) {
   			this.url = url;
 				switch(url){
-					case btcUSD:
-						this.collection = database.getCollection("btcUSD");	// get database collection
+					case btceUSD:
+						this.collection = database.getCollection("btceUSD");	// get database collection
 						break;
 					case bitbayUSD:
 						this.collection = database.getCollection("bitbayUSD");	// get database collection
