@@ -35,7 +35,7 @@ public static String Anxhk(String jsonText){
 			//Ask
 			temp1 = jsonText.substring(jsonText.indexOf("sell"),jsonText.lastIndexOf("now"));
 			temp2 = temp1.substring(temp1.lastIndexOf("\"value\"")+7);
-			generatedJsonText = generatedJsonText +"\"ask\":" + getKeyWord(temp2) +",";;
+			generatedJsonText = generatedJsonText +"\"ask\":" + getKeyWord(temp2) +",";
 			//High
 			temp1 = jsonText.substring(jsonText.indexOf("high"),jsonText.lastIndexOf("low"));
 			temp2 = temp1.substring(temp1.lastIndexOf("\"value\"")+7);
@@ -66,27 +66,17 @@ public static String Anxhk(String jsonText){
 			return generatedJsonText;
 		
 	}
-	public static String getKeyWord(String temp){
-		int firstQuote = 0;
-		int secondQuote = 0;
-		firstQuote = temp.indexOf("\""); // finds index that begins with "
+	private static String getKeyWord(String temp){
 		if(temp.contains(","))
-			secondQuote = temp.indexOf(","); // finds index that begins with ,
+			return temp.substring(temp.indexOf("\"")+1, temp.indexOf(",")-1);
 		else
-			secondQuote = temp.indexOf("}");
-		return temp.substring(firstQuote+1, secondQuote-1); // minuses are used to remove quotes
-		
+			return temp.substring(temp.indexOf("\"")+1, temp.indexOf("}")-1); // minuses are used to remove quote
 	}
-	public static String getKeyWordNoQuote(String temp){ // thismethod is used if the number doesnt have any quote
-		int firstQuote = 0;
-		int secondQuote = 0;
-		firstQuote = temp.indexOf(":"); // finds index that begins with "
+	private static String getKeyWordNoQuote(String temp){ // thismethod is used if the number doesnt have any quote
 		if(temp.contains(","))
-			secondQuote = temp.indexOf(","); // finds index that begins with ,
+			return temp.substring(temp.indexOf(":")+1, temp.indexOf(","));
 		else
-			secondQuote = temp.indexOf("}");
-		return temp.substring(firstQuote+1, secondQuote); // minuses are used to remove quotes
-		
+			return temp.substring(temp.indexOf(":")+1, temp.indexOf("}")); // minuses are used to remove quotes
 	}
 	
 }

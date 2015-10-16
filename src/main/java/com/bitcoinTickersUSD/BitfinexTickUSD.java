@@ -1,7 +1,7 @@
 package com.bitcoinTickersUSD;
 
-public class BitFinexTickUSD {
-	public static String BitFinex(String jsonText){
+public class BitfinexTickUSD {
+	public static String Bitfinex(String jsonText){
 		String generatedJsonText;
 		String temp; // temp String to get keyword
 
@@ -37,15 +37,11 @@ public class BitFinexTickUSD {
 		return generatedJsonText;
 	
 }
-public static String getKeyWord(String temp){
-	int firstQuote = 0;
-	int secondQuote = 0;
-	firstQuote = temp.indexOf("\""); // finds index that begins with "
+private static String getKeyWord(String temp){
 	if(temp.contains(","))
-		secondQuote = temp.indexOf(","); // finds index that begins with ,
+		return temp.substring(temp.indexOf("\"")+1, temp.indexOf(",")-1);
 	else
-		secondQuote = temp.indexOf("}");
-	return temp.substring(firstQuote+1, secondQuote-1); // minuses are used to remove quotes
+		return temp.substring(temp.indexOf("\"")+1, temp.indexOf("}")-1); // minuses are used to remove quotes
 	
 }
 }

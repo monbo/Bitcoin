@@ -1,21 +1,18 @@
 package com.bitcollect;
 //
-import java.io.IOException;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import org.bson.Document;
-import java.util.Date;
-
 import com.mongodb.MongoClient;
-
-
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
+import org.bson.Document;
 
-public class App {
+import java.io.IOException;
+import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+
+class App {
 	//Names of bitcoin sites
 
 	
@@ -31,12 +28,13 @@ public class App {
 		String[] serverList = {ExchangeServers.btceUSD, ExchangeServers.bitfinexUSD, 
 				ExchangeServers.bitstampUSD, ExchangeServers.korbitKRW, ExchangeServers.bitbayUSD,
 				ExchangeServers.anxhkUSD};
-		while(true) {
-			for (int i = 0; i < serverList.length; i++) {
-				String url = serverList[i];
-				Runnable worker = new MyRunnable(url, client, database);
-				executor.execute(worker);
-			}
+        //noinspection InfiniteLoopStatement
+        while(true) {
+            for (String url:serverList) {
+
+                Runnable worker = new MyRunnable(url,database);
+                executor.execute(worker);
+            }
 			Thread.sleep(10000);
 			
 		}
@@ -46,7 +44,7 @@ public class App {
   		private final String url;
   		MongoCollection<Document> collection;
 
-  		MyRunnable(String url, MongoClient client, MongoDatabase database) {
+  		MyRunnable(String url, MongoDatabase database) {
   			this.url = url;
 				switch(url){
 					case ExchangeServers.btceUSD:

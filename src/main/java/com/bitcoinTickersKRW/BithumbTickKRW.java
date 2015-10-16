@@ -49,27 +49,18 @@ public class BithumbTickKRW {
 		return generatedJsonText;
 	
 }
-static String getKeyWord(String temp){
-	int firstQuote = 0;
-	int secondQuote = 0;
-	firstQuote = temp.indexOf("\""); // finds index that begins with "
+private static String getKeyWord(String temp){
 	if(temp.contains(","))
-		secondQuote = temp.indexOf(","); // finds index that begins with ,
+		return temp.substring(temp.indexOf("\"")+1, temp.indexOf(",")-1);
 	else
-		secondQuote = temp.indexOf("}");
-	return temp.substring(firstQuote+1, secondQuote-1); // minuses are used to remove quotes
+		return temp.substring(temp.indexOf("\"")+1, temp.indexOf("}")-1); // minuses are used to remove quotes
 	
 }
-static String getKeyWordNoQuote(String temp)
+private static String getKeyWordNoQuote(String temp)
 { // thismethod is used if the number doesnt have any quote
-	int firstQuote = 0;
-	int secondQuote = 0;
-	firstQuote = temp.indexOf(":"); // finds index that begins with "
 	if(temp.contains(","))
-		secondQuote = temp.indexOf(","); // finds index that begins with ,
+		return temp.substring(temp.indexOf(":")+1, temp.indexOf(","));
 	else
-		secondQuote = temp.indexOf("}");
-	return temp.substring(firstQuote+1, secondQuote); // minuses are used to remove quotes
-	
+		return temp.substring(temp.indexOf(":")+1, temp.indexOf("}")); // minuses are used to remove quotes
 }
 }

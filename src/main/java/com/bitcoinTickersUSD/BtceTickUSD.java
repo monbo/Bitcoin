@@ -1,7 +1,7 @@
 package com.bitcoinTickersUSD;
 
 public class BtceTickUSD {
-	public static String BitStamp(String jsonText){
+	public static String Btce(String jsonText){
 	String generatedJsonText;
 	String temp; // temp String to get keyword
 
@@ -35,26 +35,11 @@ public class BtceTickUSD {
 		return generatedJsonText;
 	
 }
- static String getKeyWord(String temp){
-	int firstQuote = 0;
-	int secondQuote = 0;
-	firstQuote = temp.indexOf("\""); // finds index that begins with "
+private static String getKeyWordNoQuote(String temp)
+{ // thismethod is used if the number doesnt have any quote
 	if(temp.contains(","))
-		secondQuote = temp.indexOf(","); // finds index that begins with ,
+		return temp.substring(temp.indexOf(":")+1, temp.indexOf(","));
 	else
-		secondQuote = temp.indexOf("}");
-	return temp.substring(firstQuote+1, secondQuote-1); // minuses are used to remove quotes
-	
-}
- static String getKeyWordNoQuote(String temp){ // thismethod is used if the number doesnt have any quote
-	int firstQuote = 0;
-	int secondQuote = 0;
-	firstQuote = temp.indexOf(":"); // finds index that begins with "
-	if(temp.contains(","))
-		secondQuote = temp.indexOf(","); // finds index that begins with ,
-	else
-		secondQuote = temp.indexOf("}");
-	return temp.substring(firstQuote+1, secondQuote); // minuses are used to remove quotes
-	
+		return temp.substring(temp.indexOf(":")+1, temp.indexOf("}")); // minuses are used to remove quotes
 }
 }

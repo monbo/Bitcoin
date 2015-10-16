@@ -1,9 +1,8 @@
 package com.bitcoinTickersUSD;
 
-import java.sql.Timestamp;
 import java.util.Date;
-public class BitBayTickUSD {
-	public static String BitBay(String jsonText){
+public class BitbayTickUSD {
+	public static String Bitbay(String jsonText){
 		String generatedJsonText;
 		String temp; // temp String to get keyword
 
@@ -43,26 +42,11 @@ public class BitBayTickUSD {
 			return generatedJsonText;
 		
 	}
-	static String getKeyWord(String temp){
-		int firstQuote = 0;
-		int secondQuote = 0;
-		firstQuote = temp.indexOf("\""); // finds index that begins with "
-		if(temp.contains(","))
-			secondQuote = temp.indexOf(","); // finds index that begins with ,
-		else
-			secondQuote = temp.indexOf("}");
-		return temp.substring(firstQuote+1, secondQuote-1); // minuses are used to remove quotes
-		
-	}
-	 static String getKeyWordNoQuote(String temp){ // thismethod is used if the number doesnt have any quote
-			int firstQuote = 0;
-			int secondQuote = 0;
-			firstQuote = temp.indexOf(":"); // finds index that begins with "
-			if(temp.contains(","))
-				secondQuote = temp.indexOf(","); // finds index that begins with ,
-			else
-				secondQuote = temp.indexOf("}");
-			return temp.substring(firstQuote+1, secondQuote); // minuses are used to remove quotes
+	 private static String getKeyWordNoQuote(String temp){ // thismethod is used if the number doesnt have any quote
+		 if(temp.contains(","))
+			 return temp.substring(temp.indexOf(":")+1, temp.indexOf(","));
+		 else
+			 return temp.substring(temp.indexOf(":")+1, temp.indexOf("}")); // minuses are used to remove quotes
 			
 		}
 }

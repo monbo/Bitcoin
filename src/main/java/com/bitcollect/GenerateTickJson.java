@@ -1,45 +1,37 @@
 package com.bitcollect;
-import com.bitcoinTickersKRW.BithumbTickKRW;
+
 import com.bitcoinTickersKRW.KorbitTickKRW;
 import com.bitcoinTickersUSD.AnxhkTickUSD;
-import com.bitcoinTickersUSD.BitBayTickUSD;
-import com.bitcoinTickersUSD.BitFinexTickUSD;
-import com.bitcoinTickersUSD.BitStampTickUSD;
+import com.bitcoinTickersUSD.BitbayTickUSD;
+import com.bitcoinTickersUSD.BitfinexTickUSD;
+import com.bitcoinTickersUSD.BitstampTickUSD;
 import com.bitcoinTickersUSD.BtceTickUSD;
 
-public class GenerateTickJson {
+class GenerateTickJson {
 
 	public static String GenerateJson(String url, String jsonText){
-		String generatedJsonText = "";
-		switch(url){
+		switch(url) {
 			case ExchangeServers.btceUSD:
-				generatedJsonText = BtceTickUSD.BitStamp(jsonText);
-				break;
+				return BtceTickUSD.Btce(jsonText);
 			case ExchangeServers.bitfinexUSD:
-				generatedJsonText = BitFinexTickUSD.BitFinex(jsonText);
-				break;
+				return BitfinexTickUSD.Bitfinex(jsonText);
 			case ExchangeServers.bitstampUSD:
-				generatedJsonText = BitStampTickUSD.BitStamp(jsonText);
-				break;
+				return BitstampTickUSD.Bitstamp(jsonText);
 			case ExchangeServers.korbitKRW:
-				generatedJsonText = KorbitTickKRW.KorBit(jsonText);
-				break;
+				return KorbitTickKRW.KorBit(jsonText);
 			case ExchangeServers.bitbayUSD:
-				generatedJsonText = BitBayTickUSD.BitBay(jsonText);
-				break;
+				return BitbayTickUSD.Bitbay(jsonText);
+
 			case ExchangeServers.anxhkUSD:
-				generatedJsonText = AnxhkTickUSD.Anxhk(jsonText);
-				break;
+				return AnxhkTickUSD.Anxhk(jsonText);
+
 /*			case ExchangeServers.bithumbKRW:
 				generatedJsonText = BithumbTickKRW.Bithumb(jsonText);
 				break;*/
 			default:
-				generatedJsonText = "";
-				break;
-					
+				return null;
+
 		}
-		
-		return generatedJsonText;
 	}
 
 }
