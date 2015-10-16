@@ -4,37 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/com/bitcollect/JsonReader.java" line="16" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83f3bba0-b990-423f-a5b6-ab0a8aec3dff" name="Default" comment="Fixed minor bugs">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sparkjava_spark_core_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_http_9_0_2_v20130417.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_io_9_0_2_v20130417.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_security_9_0_2_v20130417.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_server_9_0_2_v20130417.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_servlet_9_0_2_v20130417.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_util_9_0_2_v20130417.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_webapp_9_0_2_v20130417.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_xml_9_0_2_v20130417.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_orbit_javax_servlet_3_0_0_v201112011016.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20090211.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongo_java_driver_3_0_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_2.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/bitcollect/BitBayTickUSD.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/bitcollect/BitFinexTickUSD.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/bitcollect/BitStampTickUSD.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/bitcollect/BtceTickUSD.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/bitcollect/KorBitTickKRW.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/bitcoinTickersUSD/BitBayTickUSD.java" afterPath="$PROJECT_DIR$/src/main/java/com/bitcoinTickersUSD/BitbayTickUSD.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/bitcoinTickersUSD/BitFinexTickUSD.java" afterPath="$PROJECT_DIR$/src/main/java/com/bitcoinTickersUSD/BitfinexTickUSD.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/bitcoinTickersUSD/BitStampTickUSD.java" afterPath="$PROJECT_DIR$/src/main/java/com/bitcoinTickersUSD/BitstampTickUSD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bitcoinTickersUSD/AnxhkTickUSD.java" afterPath="$PROJECT_DIR$/src/main/java/com/bitcoinTickersUSD/AnxhkTickUSD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bitcollect/App.java" afterPath="$PROJECT_DIR$/src/main/java/com/bitcollect/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BIT.iml" afterPath="$PROJECT_DIR$/BIT.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bitcoinTickersKRW/BithumbTickKRW.java" afterPath="$PROJECT_DIR$/src/main/java/com/bitcoinTickersKRW/BithumbTickKRW.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bitcoinTickersUSD/BtceTickUSD.java" afterPath="$PROJECT_DIR$/src/main/java/com/bitcoinTickersUSD/BtceTickUSD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bitcollect/GenerateTickJson.java" afterPath="$PROJECT_DIR$/src/main/java/com/bitcollect/GenerateTickJson.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bitcollect/JsonReader.java" afterPath="$PROJECT_DIR$/src/main/java/com/bitcollect/JsonReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bitcoinTickersKRW/KorbitTickKRW.java" afterPath="$PROJECT_DIR$/src/main/java/com/bitcoinTickersKRW/KorbitTickKRW.java" />
+    <list default="true" id="83f3bba0-b990-423f-a5b6-ab0a8aec3dff" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BIT.iws" />
@@ -539,6 +509,13 @@
       <option name="number" value="Default" />
       <updated>1445012577232</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fixed minor bugs">
+      <created>1445016665970</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1445016665970</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
