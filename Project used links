@@ -1,0 +1,8 @@
+﻿http://api.bitcoincharts.com/v1/csv/  // link to get old bitcoin data updated daily
+
+http://stackoverflow.com/questions/16143266/get-bitcoin-historical-data
+
+
+ mongoimport -d mydb -c things --type csv --file locations.csv --headerline
+
+import csv file

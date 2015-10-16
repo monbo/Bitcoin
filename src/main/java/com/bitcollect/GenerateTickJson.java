@@ -1,30 +1,38 @@
 package com.bitcollect;
-
+import com.bitcoinTickersKRW.BithumbTickKRW;
+import com.bitcoinTickersKRW.KorbitTickKRW;
+import com.bitcoinTickersUSD.AnxhkTickUSD;
+import com.bitcoinTickersUSD.BitBayTickUSD;
+import com.bitcoinTickersUSD.BitFinexTickUSD;
+import com.bitcoinTickersUSD.BitStampTickUSD;
+import com.bitcoinTickersUSD.BtceTickUSD;
 
 public class GenerateTickJson {
-	static final String btceUSD = "https://btc-e.com/api/3/ticker/btc_usd";
-	static final String bitfinexUSD = "https://api.bitfinex.com//v1/pubticker/btcusd";
-	static final String bitstampUSD = "https://bitstamp.net/api/ticker/";
-	static final String korbitKRW = "https://api.korbit.co.kr/v1/ticker/detailed";
-	static final String bitbayUSD = "https://bitbay.net/API/Public/BTCUSD/ticker.json";
+
 	public static String GenerateJson(String url, String jsonText){
 		String generatedJsonText = "";
 		switch(url){
-			case btceUSD:
+			case ExchangeServers.btceUSD:
 				generatedJsonText = BtceTickUSD.BitStamp(jsonText);
 				break;
-			case bitfinexUSD:
+			case ExchangeServers.bitfinexUSD:
 				generatedJsonText = BitFinexTickUSD.BitFinex(jsonText);
 				break;
-			case bitstampUSD:
+			case ExchangeServers.bitstampUSD:
 				generatedJsonText = BitStampTickUSD.BitStamp(jsonText);
 				break;
-			case korbitKRW:
-				generatedJsonText = KorBitTickKRW.KorBit(jsonText);
+			case ExchangeServers.korbitKRW:
+				generatedJsonText = KorbitTickKRW.KorBit(jsonText);
 				break;
-			case bitbayUSD:
+			case ExchangeServers.bitbayUSD:
 				generatedJsonText = BitBayTickUSD.BitBay(jsonText);
 				break;
+			case ExchangeServers.anxhkUSD:
+				generatedJsonText = AnxhkTickUSD.Anxhk(jsonText);
+				break;
+/*			case ExchangeServers.bithumbKRW:
+				generatedJsonText = BithumbTickKRW.Bithumb(jsonText);
+				break;*/
 			default:
 				generatedJsonText = "";
 				break;
