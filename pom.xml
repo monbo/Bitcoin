@@ -44,7 +44,12 @@
 		<artifactId>mongo-java-driver</artifactId>
 		<version>3.0.2</version>
 	</dependency>
-    
+    <dependency>
+	<groupId>commons-httpclient</groupId>
+	<artifactId>commons-httpclient</artifactId>
+	<version>3.1</version>
+</dependency>
+
 <!--     <dependency> -->
 <!--         <groupId>org.freemarker</groupId> -->
 <!--         <artifactId>freemarker</artifactId> -->

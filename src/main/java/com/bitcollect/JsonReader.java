@@ -15,7 +15,7 @@ import java.nio.charset.Charset;
 
 
 class JsonReader {
-	
+
 	private static String readAll(Reader rd) throws IOException{
 		StringBuilder sb = new StringBuilder();
 		int cp;
@@ -24,7 +24,7 @@ class JsonReader {
 		}
 		return sb.toString();
 	}
-	
+
 	public static Document readJsonFromUrl(String url) throws IOException{
 		//InputStream is = new URL(url).openStream();
 		URLConnection openConnection = new URL(url).openConnection();
