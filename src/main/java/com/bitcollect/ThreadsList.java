@@ -11,29 +11,15 @@ import org.bson.Document;
 public class ThreadsList {
     private MongoCollection<Document> collection;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ///////////// MyRunable for Two Second
-
-    public static class TwoSecondRunnable implements Runnable {
-        private String url;
+    public static class BitcoinRunnable implements Runnable {
         private MongoDatabase database;
-        public TwoSecondRunnable(String url, MongoDatabase database) {
+        private BitcoinExchange bitcoinExchange;
+
+        public BitcoinRunnable(BitcoinExchange bitcoinExchange, MongoDatabase database) {
             MongoCollection<Document> collection;
-            this.url = url;
+            this.bitcoinExchange = bitcoinExchange;
             this.database = database;
+
 
         }
 
@@ -41,11 +27,11 @@ public class ThreadsList {
         public void run() {
 
             try {
-
+                bitcoinExchange.setInprogress(true);
                 MongoCollection<Document> collection;
                 Date now = new Date();
-                System.out.println("Starting time:" +Thread.currentThread().getName() + " " + now);
-                switch (url) {
+
+                switch (bitcoinExchange.getServeURL()) {
                     case ExchangeServers.btceUSD:
                         collection = database.getCollection("btceUSD");    // get database collection
                         break;
@@ -71,16 +57,22 @@ public class ThreadsList {
                         break;
                 }
 
+                Document doc = JsonReader.readJsonFromUrl(bitcoinExchange.getServeURL());
 
-                Document doc = JsonReader.readJsonFromUrl(url);
-                doc.append("now", now.getTime()); // time at which the data was added
-                System.out.println(url + " " + doc.toString());
-                TwoSecondDelay();
-                Date end = new Date();
-                System.out.println("Ending Time: " + Thread.currentThread().getName() + " " + end);
+                if (!StringDuplicate.check(doc.toString()).equals(bitcoinExchange.getPrevious())){
+                    bitcoinExchange.setPrevious(StringDuplicate.check(doc.toString()));
+                    doc.append("now", now.getTime()); // time at which the data was added
+                    System.out.println(bitcoinExchange.getServeURL() + " " + doc.toString());
+                    //collection.insertOne(doc);
+                }
 
-                //}
-                //collection.insertOne(doc);
+
+                Delay(bitcoinExchange.getDelay());
+
+                bitcoinExchange.setInprogress(false);
+
+
+
 
             } catch (Exception e) {
                 System.err.println(e.getMessage());
@@ -88,9 +80,9 @@ public class ThreadsList {
 
 
         }
-        private void TwoSecondDelay() {
+        private void Delay(int delay) {
             try {
-                Thread.sleep(10000);
+                Thread.sleep(delay);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

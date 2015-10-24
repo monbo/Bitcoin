@@ -1,26 +1,19 @@
 package com.bitcollect;
 //
-import com.BooleanOperations.ServerAccesabilityTimeCheck;
 import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-import org.bson.Document;
-
 import java.io.IOException;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import com.bitcollect.ThreadsList;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
-
-import static com.bitcollect.ExchangeServers.serverList;
-import static com.bitcollect.ThreadsList.*;
+import static com.bitcollect.ExchangeServers.bitcoinExchangekList;
+import static com.bitcollect.ExchangeServers.exchangeAmount;
+import static com.bitcollect.ExchangeServers.setUpExhanges;
 
 
 class App {
+
 
     //Names of bitcoin sites
 
@@ -31,21 +24,21 @@ class App {
         MongoDatabase database = client.getDatabase("Tick");    // connect to database
         System.out.println("Connect to database successfully");
 
-        final int MYTHREADS = 4;    // thread number
+        //Setting up exchanges
+        setUpExhanges();
 
+        final int MYTHREADS = exchangeAmount;    // thread number
         ExecutorService executor = Executors.newFixedThreadPool(MYTHREADS);
-
         //noinspection InfiniteLoopStatement
         while (true) {
-
-            for (String url : serverList) {
-                ThreadsList.TwoSecondRunnable twoSecond = new ThreadsList.TwoSecondRunnable(url,database);
-                ThreadsList.TwoSecondRunnable twoSeconds = new ThreadsList.TwoSecondRunnable(url,database);
-                executor.execute(twoSecond);
+            for (int i = 0; i < exchangeAmount; i++)
+            {
+                if (!bitcoinExchangekList[i].isInprogress()) {
+                    ThreadsList.BitcoinRunnable twoSecond = new ThreadsList.BitcoinRunnable(bitcoinExchangekList[i], database);
+                    executor.execute(twoSecond);
+                }
+                Thread.sleep(10);
             }
-            System.out.println();
-            Thread.sleep(1000);
-
         }
     }
 

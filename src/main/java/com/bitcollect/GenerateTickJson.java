@@ -21,7 +21,6 @@ class GenerateTickJson {
 				return KorbitTickKRW.KorBit(jsonText);
 			case ExchangeServers.bitbayUSD:
 				return BitbayTickUSD.Bitbay(jsonText);
-
 			case ExchangeServers.anxhkUSD:
 				return AnxhkTickUSD.Anxhk(jsonText);
 
