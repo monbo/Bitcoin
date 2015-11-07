@@ -1,7 +1,6 @@
 package com.bitcollect;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+
 
 public class ExchangeServers {
 
@@ -17,7 +16,7 @@ public class ExchangeServers {
 	Information queries - such as get depth/results/ticker are throttled to 5 per second.
 	Finally there is a maximum of 50 open orders at any one time, with a total of 50 adds per hour.*/
 
-	//public static final String bithumbKRW = "https://api.bithumb.com/public/tickers";
+	public static final String bithumbKRW = "https://api.bithumb.com/public/ticker"; //Not sure // need to fix handshake error
 	// still not implemented
 	public static final String bitcurexUSD = "https://bitcurex.com/api/usd/ticker.json"; // 2 Seconds Not sure
 	//still not implemented no timestamp
@@ -34,15 +33,15 @@ public class ExchangeServers {
 	public static final String vircurexUSD = "https://api.vircurex.com/api/get_info_for_1_currency.json?base=BTC&alt=USD"; // every 5s
 	public static final String therocktradingUSD = "https://api.therocktrading.com/v1/funds/BTCUSD/ticker";//slow
 
-	public final static int exchangeAmount = 6;
+	public final static int exchangeAmount = 9;
 	public static final BitcoinExchange[] bitcoinExchangekList = new BitcoinExchange[exchangeAmount];
 
 	public static void setUpExhanges(){
 
+/*		bitcoinExchangekList[0] = new BitcoinExchange(bitcurexUSD);
+		bitcoinExchangekList[0].setDelay(2000);*/
 		bitcoinExchangekList[0] = new BitcoinExchange(btceUSD);
-		bitcoinExchangekList[0].setInprogress(false);
 		bitcoinExchangekList[0].setDelay(2000);
-		bitcoinExchangekList[0].setPrevious("");
 
 		bitcoinExchangekList[1] = new BitcoinExchange(bitfinexUSD);
 		bitcoinExchangekList[1].setDelay(1000);
@@ -59,32 +58,18 @@ public class ExchangeServers {
 		bitcoinExchangekList[5] = new BitcoinExchange(anxhkUSD);
 		bitcoinExchangekList[5].setDelay(350);
 
-/*		bitcoinExchangekList[6] = new BitcoinExchange(bitfinexUSD);
-		bitcoinExchangekList[6].setDelay(1000);
+		bitcoinExchangekList[6] = new BitcoinExchange(bitkonanUSD);
+		bitcoinExchangekList[6].setDelay(2000);
 
-		bitcoinExchangekList[7] = new BitcoinExchange(bitfinexUSD);
-		bitcoinExchangekList[7].setDelay(1000);
+		bitcoinExchangekList[7] = new BitcoinExchange(campbxUSD);
+		bitcoinExchangekList[7].setDelay(2000);
 
-		bitcoinExchangekList[8] = new BitcoinExchange(bitfinexUSD);
-		bitcoinExchangekList[8].setDelay(1000);
+		bitcoinExchangekList[8] = new BitcoinExchange(hitbtcUSD);
+		bitcoinExchangekList[8].setDelay(2000);
 
-		bitcoinExchangekList[9] = new BitcoinExchange(bitfinexUSD);
-		bitcoinExchangekList[9].setDelay(1000);
+/*		bitcoinExchangekList[9] = new BitcoinExchange(bitcurexUSD);
+		bitcoinExchangekList[9].setDelay(3000);*/
 
-		bitcoinExchangekList[10] = new BitcoinExchange(bitfinexUSD);
-		bitcoinExchangekList[10].setDelay(1000);
-
-		bitcoinExchangekList[11] = new BitcoinExchange(bitfinexUSD);
-		bitcoinExchangekList[11].setDelay(1000);
-
-		bitcoinExchangekList[12] = new BitcoinExchange(bitfinexUSD);
-		bitcoinExchangekList[12].setDelay(1000);
-
-		bitcoinExchangekList[13] = new BitcoinExchange(bitfinexUSD);
-		bitcoinExchangekList[13].setDelay(1000);
-
-		bitcoinExchangekList[14] = new BitcoinExchange(bitfinexUSD);
-		bitcoinExchangekList[14].setDelay(1000);*/
 		for(int i = 0; i < exchangeAmount;i++){
 			bitcoinExchangekList[i].setInprogress(false);
 			bitcoinExchangekList[i].setPrevious("");

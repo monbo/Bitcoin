@@ -1,12 +1,44 @@
 package com.bitcoinTickersKRW;
 
+import com.bitcollect.JsonItemIterator;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 public class KorbitTickKRW {
+	/*{"timestamp":1442507889000,"last":"277800",
+		* "bid":"277800","ask":"277900","low":"272500","high":"277900","volume":"393.72877601"}
+		*/
+	public static String korbit(JSONObject json) throws JSONException {
+		Date timestamp = new Date();
+
+		Map<String, String> out = new HashMap<String, String>();
+		JsonItemIterator.parse(json, out);
+
+		String bid = out.get("bid");
+		String ask = out.get("ask");
+		String high = out.get("high");
+		String low = out.get("low");
+		String last = out.get("last");
+		String volume = out.get("volume");
+
+		return "{\"bid\":" + bid + ",\"ask\":" + ask + ",\"high\":" + high + ",\"low\":" + low + ",\"last\":"
+				+ last + ",\"volume\":" + volume + ",\"timestamp\": " + timestamp.getTime() + "}";
+	}
+}
+/*
+
 	public static String KorBit(String jsonText){
 	String generatedJsonText;
 	String temp; // temp String to get keyword
-	//System.out.println(jsonText);
-	/*{"timestamp":1442507889000,"last":"277800",
-	 * "bid":"277800","ask":"277900","low":"272500","high":"277900","volume":"393.72877601"}*/
+	*/
+/*{"timestamp":1442507889000,"last":"277800",
+	 * "bid":"277800","ask":"277900","low":"272500","high":"277900","volume":"393.72877601"}*//*
+
 		//Timestamp
 
 	// Because timestamp is the first word in this thick
@@ -52,3 +84,4 @@ private static String getKeyWordNoQuote(String temp)
 		return temp.substring(temp.indexOf(":")+1, temp.indexOf("}")); // minuses are used to remove quotes
 }
 }
+*/

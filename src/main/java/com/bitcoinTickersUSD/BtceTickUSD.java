@@ -1,12 +1,49 @@
 package com.bitcoinTickersUSD;
 
+import com.bitcollect.JsonItemIterator;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 public class BtceTickUSD {
+		/*{"btc_usd":{"high":232.96899,"low":225.98199,"avg":229.47549,"vol":1624949.95349,
+	"vol_cur":7121.07947,"last":232.11,"buy":232.683,"sell":232.396,"updated":1442508133}}*/
+
+	public static String btce(JSONObject json) throws JSONException {
+		//this exchange sites doesnt have timestamp
+		//Date timestamp = new Date();
+
+		Map<String, String> out = new HashMap<String, String>();
+		JsonItemIterator.parse(json, out);
+
+		String bid = out.get("buy");
+		String ask = out.get("sell");
+		String high = out.get("high");
+		String low = out.get("low");
+		String last = out.get("last");
+		String volume = out.get("vol");
+		String vol_cur = out.get("vol_cur");
+		String timestamp = out.get("updated");
+
+
+		return "{\"bid\":" + bid + ",\"ask\":" + ask + ",\"high\":" + high + ",\"low\":" + low + ",\"last\":"
+				+ last + ",\"volume\":" + volume + ",\"vol_cur\":" + vol_cur + ",\"timestamp\": " + timestamp + "}";
+	}
+}
+
+/*
 	public static String Btce(String jsonText){
 	String generatedJsonText;
 	String temp; // temp String to get keyword
 
-	/*{"btc_usd":{"high":232.96899,"low":225.98199,"avg":229.47549,"vol":1624949.95349,
-	"vol_cur":7121.07947,"last":232.11,"buy":232.683,"sell":232.396,"updated":1442508133}}*/
+	*/
+/*{"btc_usd":{"high":232.96899,"low":225.98199,"avg":229.47549,"vol":1624949.95349,
+	"vol_cur":7121.07947,"last":232.11,"buy":232.683,"sell":232.396,"updated":1442508133}}*//*
+
 
 		//Bid
 		temp  = jsonText.substring(jsonText.lastIndexOf("buy")+4); // "bid has 5 characters, I only need its value
@@ -43,3 +80,4 @@ private static String getKeyWordNoQuote(String temp)
 		return temp.substring(temp.indexOf(":")+1, temp.indexOf("}")); // minuses are used to remove quotes
 }
 }
+*/

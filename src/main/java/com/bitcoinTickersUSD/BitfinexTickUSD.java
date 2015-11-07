@@ -1,13 +1,52 @@
 package com.bitcoinTickersUSD;
 
+import com.bitcollect.JsonItemIterator;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 public class BitfinexTickUSD {
+
+/*{"mid":"234.225","bid":"234.22","ask":"234.23","last_price":"234.23","low":
+		"227.68","high":"235.71",
+		"volume":"10486.6563152","timestamp":"1442508084.584543815"}*//*
+
+*/
+
+	public static String bitfinex(JSONObject json) throws JSONException {
+		//this exchange sites doesnt have timestamp
+		//Date timestamp = new Date();
+
+		Map<String, String> out = new HashMap<String, String>();
+		JsonItemIterator.parse(json, out);
+
+		String bid = out.get("bid");
+		String ask = out.get("ask");
+		String high = out.get("high");
+		String low = out.get("low");
+		String last = out.get("last_price");
+		String volume = out.get("volume");
+		String timestamp = out.get("timestamp");
+
+		return "{\"bid\":" + bid + ",\"ask\":" + ask + ",\"high\":" + high + ",\"low\":" + low + ",\"last\":"
+				+ last + ",\"volume\":" + volume + ",\"timestamp\": " + timestamp + "}";
+	}
+}
+
+/*
 	public static String Bitfinex(String jsonText){
 		String generatedJsonText;
 		String temp; // temp String to get keyword
 
-	/*{"mid":"234.225","bid":"234.22","ask":"234.23","last_price":"234.23","low":
+	*/
+/*{"mid":"234.225","bid":"234.22","ask":"234.23","last_price":"234.23","low":
 		"227.68","high":"235.71",
-		"volume":"10486.6563152","timestamp":"1442508084.584543815"}*/
+		"volume":"10486.6563152","timestamp":"1442508084.584543815"}*//*
+
 
 	
 		//Bid
@@ -45,3 +84,4 @@ private static String getKeyWord(String temp){
 	
 }
 }
+*/

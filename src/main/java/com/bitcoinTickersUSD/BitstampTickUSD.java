@@ -1,6 +1,42 @@
 package com.bitcoinTickersUSD;
 
+import com.bitcollect.JsonItemIterator;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 public class BitstampTickUSD {
+	//	{"high": "246.43", "last": "244.75", "timestamp": "
+	//		1444489124", "bid": "244.11", "vwap": "244.77", "volume": "17853.80938745", "
+	//				+ ""low": "243.00", "ask": "244.75"}
+	public static String bitstamp(JSONObject json) throws JSONException {
+		//this exchange sites doesnt have timestamp
+		//Date timestamp = new Date();
+
+		Map<String, String> out = new HashMap<String, String>();
+		JsonItemIterator.parse(json, out);
+
+		String bid = out.get("bid");
+		String ask = out.get("ask");
+		String high = out.get("high");
+		String low = out.get("low");
+		String last = out.get("last");
+		String volume = out.get("volume");
+		//vwap Volume Weighted Average Price
+		String vwap = out.get("vwap");
+		String timestamp = out.get("timestamp");
+
+
+		return "{\"bid\":" + bid + ",\"ask\":" + ask + ",\"high\":" + high + ",\"low\":"
+				+ low + ",\"last\":" + last + ",\"volume\":" + volume + ",\"vwap\":" + vwap + ",\"timestamp\": " + timestamp + "}";
+	}
+}
+
+/*
 	public static String Bitstamp(String jsonText){
 		String generatedJsonText;
 		String temp; // temp String to get keyword
@@ -51,3 +87,4 @@ public class BitstampTickUSD {
 		
 	}
 }
+*/

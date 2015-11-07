@@ -26,16 +26,16 @@ class App {
 
         //Setting up exchanges
         setUpExhanges();
-
         final int MYTHREADS = exchangeAmount;    // thread number
         ExecutorService executor = Executors.newFixedThreadPool(MYTHREADS);
         //noinspection InfiniteLoopStatement
+
         while (true) {
             for (int i = 0; i < exchangeAmount; i++)
             {
                 if (!bitcoinExchangekList[i].isInprogress()) {
-                    ThreadsList.BitcoinRunnable twoSecond = new ThreadsList.BitcoinRunnable(bitcoinExchangekList[i], database);
-                    executor.execute(twoSecond);
+                    ThreadsList.BitcoinRunnable myRunnable = new ThreadsList.BitcoinRunnable(bitcoinExchangekList[i], database);
+                    executor.execute(myRunnable);
                 }
                 Thread.sleep(10);
             }

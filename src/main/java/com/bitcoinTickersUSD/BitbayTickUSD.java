@@ -1,13 +1,41 @@
 package com.bitcoinTickersUSD;
 
+import com.bitcollect.JsonItemIterator;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 public class BitbayTickUSD {
-	public static String Bitbay(String jsonText){
+	//*{"max":0,"min":0,"last":224,"bid":222,"ask":287.39,"vwap":223.93,"average":224,"volume":0}*//*
+	public static String bitbay(JSONObject json) throws JSONException {
+		//this exchange sites doesnt have timestamp
+		Date timestamp = new Date();
+
+		Map<String, String> out = new HashMap<String, String>();
+		JsonItemIterator.parse(json, out);
+
+		String bid = out.get("bid");
+		String ask = out.get("ask");
+		String high = out.get("max");
+		String low = out.get("min");
+		String last = out.get("last");
+		String volume = out.get("volume");
+
+
+		return "{\"bid\":" + bid + ",\"ask\":" + ask + ",\"high\":" + high + ",\"low\":" + low + ",\"last\":"
+				+ last + ",\"volume\":" + volume + ",\"timestamp\": " + timestamp.getTime() + "}";
+	}
+}
+	/*public static String Bitbay(String jsonText){
 		String generatedJsonText;
 		String temp; // temp String to get keyword
 
 		Date timestamp = new Date();
-		/*{"max":0,"min":0,"last":224,"bid":222,"ask":287.39,"vwap":223.93,"average":224,"volume":0}*/
+		*//*{"max":0,"min":0,"last":224,"bid":222,"ask":287.39,"vwap":223.93,"average":224,"volume":0}*//*
 			//temp  = jsonText.substring(jsonText.lastIndexOf("updated")+6); // "timestamp" has 11 characters, I only need its value
 			
 		
@@ -50,3 +78,4 @@ public class BitbayTickUSD {
 			
 		}
 }
+*/

@@ -1,26 +1,125 @@
 package com.bitcoinTickersUSD;
 
 
+import com.bitcollect.JsonItemIterator;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 public class AnxhkTickUSD {
-/*"result":"success","data":{"high":{"currency":"USD",
-"display":"261.16028 USD","display_short":"261.16 USD",
-"value":"261.16028","value_int":"26116028"},
-"low":{"currency":"USD","display":"241.42413 USD",
-"display_short":"241.42 USD","value":"241.42413",
-"value_int":"24142413"},"avg":{"currency":"USD",
-"display":"246.11952 USD","display_short":
-"246.12 USD","value":"246.11952","value_int":
-"24611952"},"vwap":{"currency":"USD","display":
-"0.04339 USD","display_short":"0.04 USD","value":
-"0.04339","value_int":"4339"},"vol":{"currency":
-"BTC","display":"1,347.60241921 BTC","display_short":
-"1,347.60 BTC","value":"1347.60241921","value_int":"134760241921"},
-"last":{"currency":"USD","display":"247.76795 USD","display_short":"247.77 USD",
-"value":"247.76795","value_int":"24776795"},"buy":{"currency":"USD","display":
-"247.53599 USD","display_short":"247.54 USD","value":"247.53599","value_int":
-"24753599"},"sell":{"currency":"USD","display":"248.00000 USD","display_short":
-	"248.00 USD","value":"248.00000","value_int":"24800000"},"now":1444735104710000,
-"dataUpdateTime":1444735102666000}}*/
+/*	"result": "success",
+	"data": {
+		"high": {
+			"currency": "USD",
+					"display": "725.38123 USD",
+					"display_short": "725.38 USD",
+					"value": "725.38123",
+					"value_int": "72538123"
+		},
+		"low": {
+			"currency": "USD",
+					"display": "380.00000 USD",
+					"display_short": "380.00 USD",
+					"value": "380.00000",
+					"value_int": "38000000"
+		},
+		"avg": {
+			"currency": "USD",
+					"display": "429.34018 USD",
+					"display_short": "429.34 USD",
+					"value": "429.34018",
+					"value_int": "42934018"
+		},
+		"vwap": {
+			"currency": "USD",
+					"display": "429.34018 USD",
+					"display_short": "429.34 USD",
+					"value": "429.34018",
+					"value_int": "42934018"
+		},
+		"vol": {
+			"currency": "BTC",
+					"display": "7.00000000 BTC",
+					"display_short": "7.00 BTC",
+					"value": "7.00000000",
+					"value_int": "700000000"
+		},
+		"last": {
+			"currency": "USD",
+					"display": "725.38123 USD",
+					"display_short": "725.38 USD",
+					"value": "725.38123",
+					"value_int": "72538123"
+		},
+		"buy": {
+			"currency": "USD",
+					"display": "38.85148 USD",
+					"display_short": "38.85 USD",
+					"value": "38.85148",
+					"value_int": "3885148"
+		},
+		"sell": {
+			"currency": "USD",
+					"display": "897.25596 USD",
+					"display_short": "897.26 USD",
+					"value": "897.25596",
+					"value_int": "89725596"
+		},
+		"now": 1393388594814000,
+				"dataUpdateTime": 1393388594247000
+	}
+}*/
+
+	public static String anxhk(JSONObject json) throws JSONException {
+		//Date timestamp = new Date();
+		JSONObject data = json.getJSONObject("data");
+		JSONObject buy_json = data.getJSONObject("buy");
+		Map<String, String> out = new HashMap<String, String>();
+		JsonItemIterator.parse(buy_json, out);
+		String bid = out.get("value");
+
+		JSONObject sell_json = data.getJSONObject("sell");
+		out = new HashMap<String, String>();
+		JsonItemIterator.parse(sell_json, out);
+		String ask = out.get("value");
+
+		JSONObject high_json = data.getJSONObject("high");
+		out = new HashMap<String, String>();
+		JsonItemIterator.parse(high_json, out);
+		String high = out.get("value");
+
+		JSONObject low_json = data.getJSONObject("low");
+		out = new HashMap<String, String>();
+		JsonItemIterator.parse(low_json, out);
+		String low = out.get("value");
+
+		JSONObject last_json = data.getJSONObject("last");
+		out = new HashMap<String, String>();
+		JsonItemIterator.parse(last_json, out);
+		String last = out.get("value");
+
+		JSONObject vol_json = data.getJSONObject("vol");
+		out = new HashMap<String, String>();
+		JsonItemIterator.parse(vol_json, out);
+		String volume = out.get("value");
+
+		JSONObject vwap_json = data.getJSONObject("vwap");
+		out = new HashMap<String, String>();
+		JsonItemIterator.parse(vwap_json, out);
+		String vwap = out.get("value");
+
+		JsonItemIterator.parse(data, out);
+		String timestamp = out.get("dataUpdateTime");
+
+		return "{\"bid\":" + bid + ",\"ask\":" + ask + ",\"high\":" + high + ",\"low\":" + low + ",\"last\":"
+				+ last + ",\"volume\":" + volume + ",\"vwap\":" + vwap + ",\"timestamp\": " + timestamp + "}";
+	}
+}
+/*
 public static String Anxhk(String jsonText){
 			String generatedJsonText;
 			String temp1; // temp String to get keyword
@@ -80,3 +179,4 @@ public static String Anxhk(String jsonText){
 	}
 	
 }
+*/
