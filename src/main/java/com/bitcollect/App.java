@@ -4,11 +4,15 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import static com.bitcollect.ExchangeServers.bitcoinExchangekList;
 import static com.bitcollect.ExchangeServers.exchangeAmount;
+import static com.bitcollect.ExchangeServers.okcoinCNY;
 import static com.bitcollect.ExchangeServers.setUpExhanges;
 
 
@@ -19,6 +23,7 @@ class App {
 
 
     public static void main(String[] args) throws IOException, InterruptedException {
+        DateFormat df = new SimpleDateFormat("yy/MM/dd HH:mm:ss");
 
         MongoClient client = new MongoClient("localhost", 27017);
         MongoDatabase database = client.getDatabase("Tick");    // connect to database
@@ -34,6 +39,7 @@ class App {
             for (int i = 0; i < exchangeAmount; i++)
             {
                 if (!bitcoinExchangekList[i].isInprogress()) {
+
                     ThreadsList.BitcoinRunnable myRunnable = new ThreadsList.BitcoinRunnable(bitcoinExchangekList[i], database);
                     executor.execute(myRunnable);
                 }

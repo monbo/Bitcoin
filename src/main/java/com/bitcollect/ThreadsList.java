@@ -4,8 +4,13 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.sun.istack.internal.NotNull;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.bson.Document;
+
+import static com.bitcollect.ExchangeServers.bitcoinExchangekList;
+import static com.bitcollect.ExchangeServers.okcoinCNY;
 
 /**
  * Created by simonas on 15. 10. 18.
@@ -64,23 +69,50 @@ public class ThreadsList {
                     case ExchangeServers.bitcurexUSD:
                         collection = database.getCollection("bitcurexUSD");// get database collection
                         break;
+                    case ExchangeServers.okcoinUSD:
+                        collection = database.getCollection("okcoinUSD");// get database collection
+                        break;
+                    case ExchangeServers.btccCNY:
+                        collection = database.getCollection("btccCNY");// get database collection
+                        break;
+                    case ExchangeServers.itbitEUR:
+                        collection = database.getCollection("itbitEUR");// get database collection
+                        break;
+                    case ExchangeServers.krakenEUR:
+                        collection = database.getCollection("krakenEUR");// get database collection
+                        break;
+                    case ExchangeServers.bitIndonesiaIDR:
+                        collection = database.getCollection("bitIndonesiaIDR");// get database collection
+                        break;
+                    case ExchangeServers.hitbtcEUR:
+                        collection = database.getCollection("hitbtcEUR");// get database collection
+                        break;
+                    case ExchangeServers.okcoinCNY:
+                        collection = database.getCollection("okcoinCNY");// get database collection
+                        break;
                     default:
                         break;
                 }
                 Document doc = JsonReader.readJsonFromUrl(bitcoinExchange.getServeURL());
-                //System.out.println("FAKE" + bitcoinExchange.getServeURL() + " " + doc.toString());
+               // System.out.println("FAKE" + bitcoinExchange.getServeURL() + " " + doc.toString());
 
                 if (doc != null) {
                     if (!StringDuplicate.check(doc.toString()).equals(bitcoinExchange.getPrevious())){
                         bitcoinExchange.setPrevious(StringDuplicate.check(doc.toString()));
                         Date now = new Date();
                         doc.append("now", now.getTime()); // time at which the data was added
-                        //System.out.println(bitcoinExchange.getServeURL() + " " + doc.toString());
                         if (collection != null) {
                             collection.insertOne(doc);
+                            //System.out.println(bitcoinExchange.getServeURL() + " " + doc.toString());
                         }
                     }
                 }
+/*                DateFormat df = new SimpleDateFormat("yy/MM/dd HH:mm:ss");
+                if(bitcoinExchange.getServeURL() == ExchangeServers.okcoinCNY) {
+                    Date dates = new Date();
+                    System.out.println(df.format(dates) + "   "+ bitcoinExchange.getDelay());
+                }*/
+                //System.out.println();
                 Delay(bitcoinExchange.getDelay());
 
                 bitcoinExchange.setInprogress(false);

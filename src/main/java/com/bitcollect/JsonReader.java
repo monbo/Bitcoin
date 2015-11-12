@@ -13,7 +13,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
 import java.util.Date;
-
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 
 class JsonReader {
 
@@ -40,8 +41,9 @@ class JsonReader {
 			return Document.parse(GenerateTickJson.GenerateJson(url, json));
 		}
 		catch (Exception e) {
+			DateFormat df = new SimpleDateFormat("yy/MM/dd HH:mm:ss");
 			Date date = new Date();
-			System.err.println(date.getTime() + e.getMessage());
+			System.err.println(df.format(date)  +"  " + url + "   " + e.getMessage());
 		}
 		return null;
 	}

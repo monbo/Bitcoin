@@ -30,7 +30,7 @@ public class BitcurexTickUSD{
         String last = out.get("last_tx_price_h");
         String volume = out.get("last24_volume_h");
 
-        System.out.print(bid);
+        //System.out.print(bid);
         return "{\"bid\":" + bid + ",\"ask\":" +ask + ",\"high\":" + high + ",\"low\":"+ low + ",\"last\":" + last +",\"volume\":" + volume +",\"timestamp\": "+timestamp.getTime() +"}";
     }
 }

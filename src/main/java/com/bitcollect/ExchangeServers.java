@@ -24,16 +24,25 @@ public class ExchangeServers {
 	// still not implemented no timestamp
 	public static final String campbxUSD = "https://campbx.com/api/xticker.php";
 	public static final String hitbtcUSD = "https://api.hitbtc.com/api/1/public/BTCUSD/ticker";
-	public static final String ibwtUSD = "https://ibwt.co.uk/API/trades";
+	public static final String ibwtUSD = "https://ibwt.co.uk/API/trades"; // accepts requests very rarely, but there is a call for all the trades made for that day
 	public static final String itbitUSD = "https://api.itbit.com/v1/markets/XBTUSD/ticker";
 	public static final String lakebtcUSD = "https://www.lakebtc.com/api_v1/ticker";
 	public static final String krakenUSD = "https://api.kraken.com/0/public/Ticker";
 	public static final String localbitcoinsUSD = "https://localbitcoins.com/bitcoinaverage/ticker-all-currencies/";
-	public static final String okcoinUSD = "https://www.okcoin.com/api/v1/ticker.do?symbol=btc_usd";
+	public static final String okcoinUSD = "https://www.okcoin.com/api/v1/ticker.do?symbol=btc_usd"; //40 requests per second
 	public static final String vircurexUSD = "https://api.vircurex.com/api/get_info_for_1_currency.json?base=BTC&alt=USD"; // every 5s
 	public static final String therocktradingUSD = "https://api.therocktrading.com/v1/funds/BTCUSD/ticker";//slow
 
-	public final static int exchangeAmount = 9;
+	//newly added on november
+	public static final String btccCNY = "https://data.btcchina.com/data/ticker?market=btccny"; // not sure but I assume that is several request per second
+	public static final String krakenEUR = "https://api.kraken.com/0/public/Ticker?pair=XBTEUR"; // USD
+	public static final String itbitEUR = "https://api.itbit.com/v1/markets/XBTEUR/ticker"; //XBTUSD XBTSGD XBTEUR
+	public static final String hitbtcEUR = "https://api.hitbtc.com/api/1/public/BTCEUR/ticker";
+	public static final String bitIndonesiaIDR = "https://vip.bitcoin.co.id/api/btc_idr/ticker";
+	public static final String okcoinCNY = "https://www.okcoin.cn/api/ticker.do"; //40 requests per second
+
+
+	public final static int exchangeAmount = 16;
 	public static final BitcoinExchange[] bitcoinExchangekList = new BitcoinExchange[exchangeAmount];
 
 	public static void setUpExhanges(){
@@ -69,6 +78,27 @@ public class ExchangeServers {
 
 /*		bitcoinExchangekList[9] = new BitcoinExchange(bitcurexUSD);
 		bitcoinExchangekList[9].setDelay(3000);*/
+
+		bitcoinExchangekList[9] = new BitcoinExchange(okcoinUSD);
+		bitcoinExchangekList[9].setDelay(300);
+
+		bitcoinExchangekList[10] = new BitcoinExchange(btccCNY);
+		bitcoinExchangekList[10].setDelay(350);
+
+		bitcoinExchangekList[11] = new BitcoinExchange(itbitEUR);
+		bitcoinExchangekList[11].setDelay(1000);
+
+		bitcoinExchangekList[12] = new BitcoinExchange(hitbtcEUR);
+		bitcoinExchangekList[12].setDelay(2000);
+
+		bitcoinExchangekList[13] = new BitcoinExchange(bitIndonesiaIDR);
+		bitcoinExchangekList[13].setDelay(1000);
+
+		bitcoinExchangekList[14] = new BitcoinExchange(krakenEUR);
+		bitcoinExchangekList[14].setDelay(1000);
+
+		bitcoinExchangekList[15] = new BitcoinExchange(okcoinCNY);
+		bitcoinExchangekList[15].setDelay(300);
 
 		for(int i = 0; i < exchangeAmount;i++){
 			bitcoinExchangekList[i].setInprogress(false);
