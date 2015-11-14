@@ -43,7 +43,7 @@ class App {
                     ThreadsList.BitcoinRunnable myRunnable = new ThreadsList.BitcoinRunnable(bitcoinExchangekList[i], database);
                     executor.execute(myRunnable);
                 }
-                Thread.sleep(10);
+                Thread.sleep(50);
             }
         }
     }
