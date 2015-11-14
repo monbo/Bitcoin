@@ -38,10 +38,13 @@ class App {
         while (true) {
             for (int i = 0; i < exchangeAmount; i++)
             {
+                //System.out.println(bitcoinExchangekList[i].isInprogress());
                 if (!bitcoinExchangekList[i].isInprogress()) {
 
                     ThreadsList.BitcoinRunnable myRunnable = new ThreadsList.BitcoinRunnable(bitcoinExchangekList[i], database);
                     executor.execute(myRunnable);
+
+
                 }
                 Thread.sleep(50);
             }

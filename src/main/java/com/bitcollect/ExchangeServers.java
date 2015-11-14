@@ -47,7 +47,7 @@ public class ExchangeServers {
 
 	public static void setUpExhanges(){
 
-/*		bitcoinExchangekList[0] = new BitcoinExchange(bitcurexUSD);
+	/*	bitcoinExchangekList[0] = new BitcoinExchange(bitstampUSD);
 		bitcoinExchangekList[0].setDelay(2000);*/
 		bitcoinExchangekList[0] = new BitcoinExchange(btceUSD);
 		bitcoinExchangekList[0].setDelay(2000);
@@ -76,8 +76,8 @@ public class ExchangeServers {
 		bitcoinExchangekList[8] = new BitcoinExchange(hitbtcUSD);
 		bitcoinExchangekList[8].setDelay(2000);
 
-/*		bitcoinExchangekList[9] = new BitcoinExchange(bitcurexUSD);
-		bitcoinExchangekList[9].setDelay(3000);*/
+		bitcoinExchangekList[9] = new BitcoinExchange(bitcurexUSD);
+		bitcoinExchangekList[9].setDelay(3000);
 
 		bitcoinExchangekList[9] = new BitcoinExchange(okcoinUSD);
 		bitcoinExchangekList[9].setDelay(300);

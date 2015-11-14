@@ -36,18 +36,18 @@ public class ThreadsList {
 
                 collection = database.getCollection(ThreadListCollections.chooseCollection(bitcoinExchange));
 
-                Document doc = JsonReader.readJsonFromUrl(bitcoinExchange.getServeURL());
+                Document doc = JsonReader.readJsonFromUrl(bitcoinExchange);
                 //System.out.println("FAKE  " + bitcoinExchange.getServeURL() + " " + doc.toString());
-                if(!doc.equals(null)) {
-                    if (!StringDuplicate.check(doc.toString()).equals(bitcoinExchange.getPrevious())) {
-                        bitcoinExchange.setPrevious(StringDuplicate.check(doc.toString()));
-                        Date now = new Date();
-                        doc.append("now", now.getTime()); // time at which the data was added
-                        if (collection != null) {
-                            collection.insertOne(doc);
-                            System.out.println(bitcoinExchange.getServeURL() + " " + doc.toString());
+                if (doc != null) {
+                        if (!StringDuplicate.check(doc.toString()).equals(bitcoinExchange.getPrevious())) {
+                            bitcoinExchange.setPrevious(StringDuplicate.check(doc.toString()));
+                            Date now = new Date();
+                            doc.append("now", now.getTime()); // time at which the data was added
+                            if (collection != null) {
+                                collection.insertOne(doc);
+                                //System.out.println(bitcoinExchange.getServeURL() + " " + doc.toString());
+                            }
                         }
-                    }
                 }
 /*              DateFormat df = new SimpleDateFormat("yy/MM/dd HH:mm:ss");
                 if(bitcoinExchange.getServeURL() == ExchangeServers.okcoinCNY) {

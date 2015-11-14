@@ -35,14 +35,13 @@ class JsonReader {
 		return sb.toString();
 	}
 
-	public static Document readJsonFromUrl(String url) throws IOException, ExecutionException, JSONException {
+	public static Document readJsonFromUrl(BitcoinExchange bitcoinExchange) throws IOException, ExecutionException, JSONException {
 		HttpURLConnection openConnection = null;
 		InputStream inputStream = null;
 		JSONObject json = null;
 		try {
-			URL address = new URL(url);
+			URL address = new URL(bitcoinExchange.getServeURL());
 			openConnection = (HttpURLConnection) address.openConnection();
-			HttpURLConnection.setFollowRedirects(false);
 			openConnection.setConnectTimeout(3 * 1000);
 			openConnection.setRequestMethod("GET");
 			openConnection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 (.NET CLR 3.5.30729)");
@@ -52,10 +51,10 @@ class JsonReader {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
 			String jsonText = readAll(reader);
 			json = new JSONObject(jsonText);
-			return Document.parse(GenerateTickJson.GenerateJson(url, json));
+			return Document.parse(GenerateTickJson.GenerateJson(bitcoinExchange.getServeURL(), json));
 
 		} catch (Exception ex) {
-			System.err.println(ex.getMessage());
+			System.err.println(bitcoinExchange.getServeURL() + " " + ex.getMessage());
 		} finally {
 			if (inputStream != null) {
 				try {
