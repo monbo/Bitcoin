@@ -1,0 +1,36 @@
+20:12:26.236 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:12:26.443 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:23:41.707 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:23:41.864 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:23:44.960 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:23:44.979 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:23:47.421 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:23:47.437 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:23:50.056 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:23:50.070 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:23:52.517 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:23:52.523 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:23:54.952 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:23:54.958 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:23:58.343 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:23:58.348 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:24:00.493 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:24:00.499 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:24:02.648 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:24:02.655 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:24:04.798 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:24:04.803 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:24:06.945 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:24:06.951 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:24:09.094 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:24:09.099 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:24:11.245 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:24:11.254 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:24:13.398 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:24:13.406 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:24:15.551 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:24:15.559 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:24:17.705 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:24:17.718 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
+20:24:19.866 simonas-S60RH-AS7500D [main] DEBUG com.xeiam.xchange.ExchangeFactory - Creating default exchange from class name 
+20:24:19.874 simonas-S60RH-AS7500D [main] DEBUG c.x.x.bitstamp.BitstampExchange - ExchangeMetaData{currencyPairs={BTC/USD=MarketMetaData{tradingFee=null, minimumAmount=null, priceScale=2}}, currency={BTC=CurrencyMetaData{scale=8}, USD=CurrencyMetaData{scale=2}}} 
